@@ -6,21 +6,18 @@
 <title>私隱政策 · 卡路貓 Kalo Cat</title>
 <style>
   :root {
-    --ink: #1B2733;
-    --muted: #5B6B77;
-    --rule: #E3E8EA;
-    --teal: #0D9AAB;
-    --bg: #ffffff;
+    --ink: #1B2733; --muted: #5B6B77; --rule: #E3E8EA;
+    --teal: #0D9AAB; --bg: #ffffff; --chipbg: #EAF6F8;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --ink: #E8EDF0; --muted: #9BAAB4; --rule: #2C3A44;
-      --teal: #4FC3D2; --bg: #14191D;
+      --teal: #4FC3D2; --bg: #14191D; --chipbg: #17303A;
     }
   }
   :root[data-theme="dark"] {
     --ink: #E8EDF0; --muted: #9BAAB4; --rule: #2C3A44;
-    --teal: #4FC3D2; --bg: #14191D;
+    --teal: #4FC3D2; --bg: #14191D; --chipbg: #17303A;
   }
   * { box-sizing: border-box; }
   body {
@@ -32,19 +29,19 @@
   h1 { font-size: 28px; line-height: 1.3; margin: 0 0 4px; text-wrap: balance; }
   .sub { color: var(--muted); font-size: 14px; margin: 0 0 32px; }
   h2 { font-size: 19px; margin: 40px 0 8px; text-wrap: balance; }
-  h3 { font-size: 16px; margin: 24px 0 6px; }
-  p, li { color: var(--ink); }
+  h3 { font-size: 16px; margin: 26px 0 6px; }
   ul { padding-left: 20px; }
   li { margin: 4px 0; }
   hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0 40px; }
   table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 15px; }
   th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
   th { color: var(--muted); font-weight: 600; font-size: 13px; letter-spacing: 0.3px; }
-  .tag { display: inline-block; font-size: 12px; font-weight: 700; color: var(--teal); border: 1px solid var(--teal); border-radius: 4px; padding: 0 5px; }
-  .en { color: var(--muted); }
-  .en h1, .en h2, .en h3, .en p, .en li, .en td { color: inherit; }
-  a { color: var(--teal); }
   .scroll { overflow-x: auto; }
+  .tag { display:inline-block; font-size:12px; font-weight:700; color:var(--teal);
+         background:var(--chipbg); border-radius:4px; padding:1px 6px; }
+  .en { color: var(--muted); }
+  .en h1, .en h2, .en h3, .en p, .en li, .en td, .en strong { color: inherit; }
+  a { color: var(--teal); }
 </style>
 </head>
 <body>
@@ -53,63 +50,87 @@
 <h1>私隱政策</h1>
 <p class="sub">卡路貓 Kalo Cat · 最後更新：2026年9月21日</p>
 
-<p>本政策說明卡路貓（下稱「本應用程式」）會收集甚麼資料、為甚麼收集、存放在哪裡，以及你可以如何處理自己的資料。我們只收集為應用程式運作所需的資料。</p>
+<p>本政策說明卡路貓（下稱「本應用程式」）收集甚麼資料、為甚麼收集、存放在哪裡，以及你可以如何處理自己的資料。我們只收集為應用程式運作所需的資料。</p>
 
-<h2>一、我們收集的資料</h2>
+<h2>一、本政策適用於兩類使用者</h2>
+<p>本應用程式有兩類使用者，收集的資料並不相同：</p>
+<ul>
+  <li><strong>食客</strong>——使用本應用程式尋找及記錄餐點的個人使用者。</li>
+  <li><strong>餐廳商戶</strong>——管理自己餐廳餐牌的店主或其授權人員。</li>
+</ul>
+<p>以下第二及第三節分別說明兩類使用者的資料；第四節之後的內容同時適用於兩者。</p>
+
+<h2>二、食客的資料</h2>
 
 <div class="scroll">
 <table>
 <tr><th>類別</th><th>內容</th><th>用途</th></tr>
 <tr><td>帳戶</td><td>電郵地址、顯示名稱</td><td>登入、辨識你的資料</td></tr>
 <tr><td>身體及目標</td><td>年齡、身高、體重、活動程度、目標（減脂／維持／增肌）、計劃起點日期及起點體重</td><td>計算你每個用餐時段的熱量／蛋白質／碳水預算</td></tr>
-<tr><td>飲食及體重記錄</td><td>你記錄的餐點、份量、時間、體重記錄、收藏的菜式</td><td>計算剩餘預算、顯示進度</td></tr>
-<tr><td>位置</td><td>裝置的概略及精確位置（只在你授權後）</td><td>顯示附近餐廳、按距離排序</td></tr>
-<tr><td>相片</td><td>你上載的餐牌相片、菜式相片、餐廳標誌、意見反饋截圖</td><td>建立及顯示餐牌資料</td></tr>
-<tr><td>推播識別碼</td><td>Firebase 推播權杖（FCM token）</td><td>傳送提醒通知</td></tr>
-<tr><td>使用量</td><td>AI 估算次數</td><td>限制濫用、控制成本</td></tr>
+<tr><td>飲食及體重記錄</td><td>你記錄的餐點、份量、時間、體重記錄、收藏的菜式、計劃調整記錄</td><td>計算剩餘預算、顯示進度</td></tr>
+<tr><td>位置</td><td>裝置的概略及精確位置，只在你授權後</td><td>顯示附近餐廳、按距離排序</td></tr>
+<tr><td>技術資料</td><td>使用者識別碼、推播權杖、AI 估算使用次數</td><td>維持登入、傳送你開啟了的通知、防止濫用</td></tr>
 </table>
 </div>
 
 <h3>身形進度相片 <span class="tag">只存於你的裝置</span></h3>
-<p>你在「進度」中拍攝或選取的身形相片，<strong>只會儲存在你自己的裝置內</strong>，不會上載到我們的伺服器，亦不會經過任何 AI 分析。刪除應用程式或清除應用程式資料時，這些相片會一併消失。</p>
+<p>你在「進度」中加入的身形相片，<strong>只會儲存在你自己的裝置內</strong>，不會上載到我們的伺服器，亦不會送往任何 AI 服務。刪除應用程式或清除應用程式資料時，這些相片會一併消失。</p>
 
-<h2>二、我們不會收集的資料</h2>
+<h2>三、餐廳商戶的資料</h2>
+<p>如果你以餐廳商戶身分使用本應用程式，我們收集的是商業資料，不是個人健康資料。我們<strong>不會</strong>向商戶收集身體、飲食或體重資料。</p>
+
+<div class="scroll">
+<table>
+<tr><th>類別</th><th>內容</th><th>用途</th></tr>
+<tr><td>帳戶</td><td>電郵地址、顯示名稱</td><td>登入、辨識你的餐廳</td></tr>
+<tr><td>申請資料</td><td>申請人電郵、申請人帳戶識別碼、餐廳名稱及地址</td><td>核實你與該餐廳的關係</td></tr>
+<tr><td>餐廳聯絡資料</td><td>餐廳地址、聯絡電話、社交媒體帳號</td><td>在應用程式內向食客顯示</td></tr>
+<tr><td>餐牌內容</td><td>你上載的餐牌相片、菜式相片、餐廳標誌，以及你在編輯器中填寫的菜式、價錢、份量及營養資料</td><td>建立及顯示你的餐牌</td></tr>
+<tr><td>訊息</td><td>你與我們之間的訊息、意見反饋及其附件</td><td>客戶支援</td></tr>
+</table>
+</div>
+<p class="sub" style="margin-top:8px">請注意：餐廳聯絡資料及餐牌內容會<strong>公開顯示</strong>給所有使用者。</p>
+
+<h2>四、我們不會收集的資料</h2>
 <ul>
   <li>我們不會收集你的通訊錄、通話記錄、短訊或瀏覽記錄。</li>
   <li>我們不會為廣告用途追蹤你，亦沒有使用第三方廣告或跨應用程式追蹤。</li>
   <li>我們不會處理你的付款資料。</li>
 </ul>
 
-<h2>三、資料存放在哪裡、經過哪些服務</h2>
-<p>我們使用以下第三方服務。你的資料會按下列方式經過它們：</p>
+<h2>五、餐廳商戶看不到食客的資料</h2>
+<p>餐廳商戶<strong>看不到</strong>任何個別食客的身分、身體資料或飲食記錄。商戶只能檢視及編輯自己餐廳的餐牌內容。</p>
+
+<h2>六、資料會交給哪些類別的服務供應商</h2>
+<p>我們會將資料交給以下類別的服務供應商，並只限於提供本服務所需：</p>
 <ul>
-  <li><strong>Supabase</strong> — 帳戶、個人資料、飲食及體重記錄、上載的相片。資料庫及檔案儲存。</li>
-  <li><strong>Google Cloud Run</strong> — 我們自己的餐牌處理服務（亞洲東南部）。</li>
-  <li><strong>Google Vertex AI</strong> — 餐牌相片會送到 Vertex AI 以辨識菜式及估算營養。只有餐牌相片會送出；身形相片不會。</li>
-  <li><strong>Google Maps 及 Places</strong> — 顯示地圖、搜尋地址。</li>
-  <li><strong>Firebase Cloud Messaging</strong> — 傳送推播通知。</li>
-  <li><strong>Open Food Facts</strong> — 掃描便利店產品條碼時，該條碼會送到 Open Food Facts 以查詢產品資料。</li>
+  <li><strong>雲端寄存及資料庫供應商</strong>——存放帳戶、個人及商戶資料、飲食及體重記錄，以及你上載的相片（餐牌、菜式、餐廳標誌、意見反饋附件）。<strong>不包括身形相片。</strong></li>
+  <li><strong>人工智能服務供應商</strong>——辨識餐牌內容及估算營養。<strong>只有餐牌相片會送出；身形相片不會。</strong></li>
+  <li><strong>地圖及地址搜尋供應商</strong>——顯示地圖、搜尋地址。</li>
+  <li><strong>推播通知供應商</strong>——傳送你開啟了的通知。</li>
+  <li><strong>公開食品資料庫</strong>——掃描便利店產品條碼時，該條碼會送出以查詢產品資料。</li>
 </ul>
-<p>我們的伺服器及資料庫位於亞洲區，惟上述第三方服務可能在其他地區處理資料。</p>
+<p>我們的伺服器及資料庫位於亞洲區；部分供應商可能在香港以外處理資料。如你想知道某類別現時的供應商，可電郵向我們查詢。</p>
 
-<h2>四、我們不會出售你的資料</h2>
-<p>我們不會出售、出租或以廣告用途分享你的個人資料。餐廳商戶<strong>看不到</strong>任何個別用家的資料——他們只能看到及編輯自己餐廳的餐牌內容。</p>
+<h2>七、我們不會出售你的資料</h2>
+<p>我們不會出售、出租你的個人資料，亦不會為廣告用途分享。</p>
 
-<h2>五、保留期及刪除</h2>
+<h2>八、保留期及刪除</h2>
 <p>你的資料會一直保留，直至你要求刪除為止。你可以電郵至下列地址要求刪除帳戶及所有相關資料，我們會在合理時間內處理。</p>
 <p>如你只想移除個別記錄，可在應用程式內直接刪除該筆飲食或體重記錄。</p>
+<p>餐廳商戶終止使用後，我們會按你的要求移除該餐廳的公開顯示內容；基於帳目或法律需要，部分記錄可能保留較長時間。</p>
 
-<h2>六、你的權利</h2>
+<h2>九、你的權利</h2>
 <p>根據香港《個人資料（私隱）條例》，你有權查閱及改正我們持有關於你的個人資料，亦可要求刪除。請以下列電郵聯絡我們。</p>
 
-<h2>七、兒童</h2>
+<h2>十、兒童</h2>
 <p>本應用程式並非為 13 歲以下人士而設，我們不會刻意收集兒童的個人資料。</p>
 
-<h2>八、政策更新</h2>
+<h2>十一、政策更新</h2>
 <p>本政策如有更新，我們會修改本頁頂部的「最後更新」日期。重大改動會在應用程式內另行通知。</p>
 
-<h2>九、聯絡我們</h2>
-<p>私隱相關查詢或刪除要求，請電郵：<a href="mailto:SUPPORT_EMAIL_HERE">SUPPORT_EMAIL_HERE</a></p>
+<h2>十二、聯絡我們</h2>
+<p>私隱相關查詢或刪除要求，請電郵：<a href="mailto:kalo26q4@gmail.com">kalo26q4@gmail.com</a></p>
 
 <hr>
 
@@ -119,43 +140,55 @@
 
 <p>This policy explains what Kalo Cat collects, why, where it is stored, and what you can do about it. We collect only what the app needs to work.</p>
 
-<h2>1. What we collect</h2>
+<h2>1. Two kinds of user</h2>
+<p><strong>Diners</strong> use the app to find and log meals. <strong>Restaurant owners</strong> manage their own restaurant's menu. We collect different data from each. Sections 2 and 3 cover them separately; everything from section 4 applies to both.</p>
+
+<h2>2. Diner data</h2>
 <ul>
-  <li><strong>Account</strong> — email address, display name. For sign-in and to identify your data.</li>
+  <li><strong>Account</strong> — email address, display name.</li>
   <li><strong>Body and goal</strong> — age, height, weight, activity level, goal, plan start date and start weight. Used to compute your per-meal calorie, protein and carbohydrate budget.</li>
-  <li><strong>Food and weight logs</strong> — meals you log, portions, times, weight entries, saved dishes.</li>
+  <li><strong>Food and weight logs</strong> — meals you log, portions, times, weight entries, saved dishes, plan changes.</li>
   <li><strong>Location</strong> — coarse and precise device location, only with your permission, to show nearby restaurants and sort by distance.</li>
-  <li><strong>Photos you upload</strong> — menu photos, dish photos, restaurant logos, feedback screenshots.</li>
-  <li><strong>Push token</strong> — Firebase Cloud Messaging token, to send reminders.</li>
-  <li><strong>Usage counts</strong> — number of AI estimates, to limit abuse and control cost.</li>
+  <li><strong>Technical</strong> — user identifier, push token, AI estimate counts. To keep you signed in, send notifications you enabled, and prevent abuse.</li>
+</ul>
+<p><strong>Body progress photos stay on your device.</strong> Photos you add in the progress view are stored only on your own device, never uploaded to our servers and never sent to any AI service. They are lost if you delete the app or clear its data.</p>
+
+<h2>3. Restaurant owner data</h2>
+<p>We collect business data from owners, not personal health data. We do <strong>not</strong> ask owners for body, food or weight information.</p>
+<ul>
+  <li><strong>Account</strong> — email address, display name.</li>
+  <li><strong>Application</strong> — applicant email, applicant account id, restaurant name and address, to verify your connection to the restaurant.</li>
+  <li><strong>Restaurant contact</strong> — address, phone, social handles. These are shown publicly in the app.</li>
+  <li><strong>Menu content</strong> — menu photos, dish photos, logo, and the dishes, prices, portions and nutrition figures you enter in the editor. Shown publicly in the app.</li>
+  <li><strong>Messages</strong> — correspondence and feedback with us, including attachments.</li>
 </ul>
 
-<h3>Body progress photos stay on your device</h3>
-<p>Photos you add in the progress view are stored <strong>only on your own device</strong>. They are never uploaded to our servers and never sent to any AI service. They are lost if you delete the app or clear its data.</p>
-
-<h2>2. What we do not collect</h2>
+<h2>4. What we do not collect</h2>
 <p>We do not collect your contacts, call history, messages or browsing history. We do not track you for advertising and use no third-party ad or cross-app tracking. We do not process payment details.</p>
 
-<h2>3. Where your data goes</h2>
-<p>We use Supabase (database, authentication, file storage), Google Cloud Run (our own menu-processing services, Asia Southeast), Google Vertex AI (menu photos only, for dish recognition and nutrition estimation), Google Maps and Places, Firebase Cloud Messaging, and Open Food Facts (a scanned barcode is sent to look up the product). Our servers are in Asia; these third parties may process data elsewhere.</p>
+<h2>5. Owners cannot see diner data</h2>
+<p>Restaurant owners cannot see any individual diner's identity, body data or food logs. They can only view and edit their own restaurant's menu.</p>
 
-<h2>4. We do not sell your data</h2>
-<p>We do not sell, rent or share your personal data for advertising. Restaurant owners cannot see any individual user's data — they can only view and edit their own restaurant's menu.</p>
+<h2>6. Classes of service provider we share data with</h2>
+<p>We pass data to the following classes of provider, only as needed to run the service: cloud hosting and database providers (accounts, personal and business data, food and weight logs, and photos you upload — menu, dish, logo and feedback attachments, <strong>never body photos</strong>); AI service providers (menu recognition and nutrition estimation — <strong>menu photos only; body photos are never sent</strong>); map and address-search providers; push notification providers; and a public food database (a scanned barcode is sent to look up the product). Our servers are in Asia; some providers may process data outside Hong Kong. Email us if you want to know the current provider in any class.</p>
 
-<h2>5. Retention and deletion</h2>
-<p>Your data is kept until you ask us to delete it. Email the address below to request deletion of your account and all associated data. Individual food or weight entries can be deleted in the app at any time.</p>
+<h2>7. We do not sell your data</h2>
+<p>We do not sell or rent your personal data, and do not share it for advertising.</p>
 
-<h2>6. Your rights</h2>
-<p>Under the Hong Kong Personal Data (Privacy) Ordinance you may access and correct the personal data we hold about you, and request its deletion. Contact us at the address below.</p>
+<h2>8. Retention and deletion</h2>
+<p>Your data is kept until you ask us to delete it. Email the address below to request deletion of your account and all associated data. Individual food or weight entries can be deleted in the app at any time. When a restaurant stops using the service we will remove its public content on request; some records may be retained longer where accounting or law requires.</p>
 
-<h2>7. Children</h2>
+<h2>9. Your rights</h2>
+<p>Under the Hong Kong Personal Data (Privacy) Ordinance you may access and correct the personal data we hold about you, and request its deletion.</p>
+
+<h2>10. Children</h2>
 <p>Kalo Cat is not intended for children under 13 and we do not knowingly collect their personal data.</p>
 
-<h2>8. Changes</h2>
+<h2>11. Changes</h2>
 <p>If this policy changes we will update the date at the top of this page, and notify you in the app for significant changes.</p>
 
-<h2>9. Contact</h2>
-<p>Privacy questions or deletion requests: <a href="mailto:SUPPORT_EMAIL_HERE">SUPPORT_EMAIL_HERE</a></p>
+<h2>12. Contact</h2>
+<p><a href="mailto:kalo26q4@gmail.com">kalo26q4@gmail.com</a></p>
 </div>
 
 </div>
